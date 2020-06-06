@@ -52,7 +52,7 @@ T mod_product(T a, Args... args) { return (a*mod_product(args...))%mod; }
 signed main()
 {
 	ios_base::sync_with_stdio(false);
-    cin.tie(NULL);	
+    	cin.tie(NULL);	
     
 	return 0;
 }	
