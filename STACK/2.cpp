@@ -26,7 +26,6 @@ int main()
     }
     int left[2500],right[25000];
     stack<ii> s;
-    //left[0]=1;
     for (int i = 0; i < n; ++i)
     {
         int cnt=1;
@@ -38,8 +37,6 @@ int main()
         s.push({a[i],cnt});
         left[i]=cnt;
     }
-    //right[n-1]=1;
-  //  s.clear();
     while(!s.empty())
     {
         s.pop();
