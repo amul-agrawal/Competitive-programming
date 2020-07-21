@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
@@ -87,7 +86,7 @@ struct matrix
 		}
 	}
 	matrix operator*(const matrix& b)const {
-		matrix temp;
+		matrix temp(size,mmod);
 		for (int i = 0; i < size; ++i)
 		{
 			for (int j = 0; j < size; ++j)
@@ -102,7 +101,7 @@ struct matrix
 		return temp;
 	}
 	matrix operator+(const matrix& b) const {
-		matrix temp;
+		matrix temp(size,mmod);
 		for (int i = 0; i < size; ++i)
 		{
 			for (int j = 0; j < size; ++j)
@@ -113,7 +112,7 @@ struct matrix
 		return temp;
 	}
 	matrix operator-(const matrix& b) const {
-		matrix temp;
+		matrix temp(size,mmod);
 		for (int i = 0; i < size; ++i)
 		{
 			for (int j = 0; j < size; ++j)
