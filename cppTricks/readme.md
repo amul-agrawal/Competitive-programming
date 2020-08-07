@@ -1,4 +1,3 @@
-[TOC]
 # Cpp Tricks
 Here I try to put cpp stuff that i find useful and will like to add to my cpp codes.
 ## General
@@ -216,3 +215,7 @@ int min1 = min({a,b,c,d});
 cout << gcd(24, 60); // 12
 cout << lcm(8, 10);  // 40
 ```
+# References
+- [Fast I/O](https://codeforces.com/blog/entry/5217)
+- [C++ tips and tricks](https://codeforces.com/blog/entry/74684)
+- [C++17, competitive programming edition](https://codeforces.com/blog/entry/57729)
