@@ -104,3 +104,5 @@ else {
 ```
 ### Using Binary Exponentiation
 `a^(phi(m)-1) % m = a^-1 % m`, given a and m are coprime, but a and m will have to coprime for modular inverse to exist.
+### Todo
+1. [Counting Divisors of a Number in O(N^1/3)](https://codeforces.com/blog/entry/22317)
