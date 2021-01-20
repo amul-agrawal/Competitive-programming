@@ -16,7 +16,7 @@ public:
 		if(parent[x] == -1) return x;
 		else return parent[x] = getparent(parent[x]);
 	}
-	bool IsSameSet(int x,int y) {return getparent(x) == getparent(y)};
+	bool IsSameSet(int x,int y) {return getparent(x) == getparent(y);}
 	void join(int x,int y)
 	{
 		x = getparent(x);
