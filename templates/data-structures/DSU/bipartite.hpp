@@ -1,25 +1,28 @@
-// 
+// Dsu for bipartitie graphs, more information: https://codeforces.com/edu/course/2/lesson/7/2
+// 1. given nodes, we are adding edges.
+// 2. we want to check if two nodes belong to same bipartite component or not.
+template<class T = int>
 class Dsu
 {
-	vector<int> parent, size, L;
+	vector<T> parent, size, L;
 public:
-	Dsu(int n)
+	Dsu(T n)
 	{
 		parent.assign(n+2, -1);
 		size.assign(n+2, 1);
 		L.assign(n+2, 0);
 	}
-	int getparent(int x)
+	T getparent(T x)
 	{
 		if(parent[x] == -1) return x;
-		int y = getparent(parent[x]);
+		T y = getparent(parent[x]);
 		L[x] ^= L[parent[x]];
 		parent[x] = y;
 		return y;
 	}
-	void join(int x,int y)
+	void join(T x,T y)
 	{
-		int cx = x, cy = y;
+		T cx = x, cy = y;
 		x = getparent(x);
 		y = getparent(y);
 		if(x == y) return;
@@ -28,7 +31,7 @@ public:
 		L[y] = 1 ^ L[cy] ^ L[cx];
 		size[x] += size[y];
 	} 
-	bool SameColor(int x,int y)
+	bool SameColor(T x,T y)
 	{
 		getparent(x);
 		getparent(y);

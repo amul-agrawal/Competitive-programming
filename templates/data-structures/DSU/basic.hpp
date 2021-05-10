@@ -1,23 +1,24 @@
-// O(nlogn merge overall)
+// O(nlogn merge overall), usage: Dsu<int> ds;
+template<class T = int>
 class Dsu
 {
-	vector<int> parent, size;
-	vector<vector<int>> comp;
+	vector<T> parent, size;
+	vector<vector<T>> comp;
 public:
-	Dsu(int n)
+	Dsu(T n)
 	{
 		parent.assign(n+2,-1);
 		size.assign(n+2,1);
 		comp.resize(n+2);
-		for(int i=0;i<n+2;i++) comp[i].pb(i);
+		for(T i=0;i<n+2;i++) comp[i].pb(i);
 	}
-	int getparent(int x)
+	T getparent(T x)
 	{
 		if(parent[x] == -1) return x;
 		else return parent[x] = getparent(parent[x]);
 	}
-	bool IsSameSet(int x,int y) {return getparent(x) == getparent(y);}
-	void join(int x,int y)
+	bool IsSameSet(T x,T y) {return getparent(x) == getparent(y);}
+	void join(T x,T y)
 	{
 		x = getparent(x);
 		y = getparent(y);
@@ -34,23 +35,24 @@ public:
 };
 
 
-// O(logN)
+// O(logN) per merge
+template<class T = int>
 class Dsu
 {
-	vector<int> parent, size;
+	vector<T> parent, size;
 public:
-	Dsu(int n)
+	Dsu(T n)
 	{
 		parent.assign(n+2,-1);
 		size.assign(n+2,1);
 	}
-	int getparent(int x)
+	T getparent(T x)
 	{
 		if(parent[x] == -1) return x;
 		else return parent[x] = getparent(parent[x]);
 	}
-	bool IsSameSet(int x,int y) {return getparent(x) == getparent(y)};
-	void join(int x,int y)
+	bool IsSameSet(T x,T y) {return getparent(x) == getparent(y)};
+	void join(T x,T y)
 	{
 		x = getparent(x);
 		y = getparent(y);
