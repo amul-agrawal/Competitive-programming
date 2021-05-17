@@ -8,7 +8,7 @@ This command turns off iostreams and stdio synchronization ([description](http:/
 
 The second optimization is about untying `cin` and `cout`:
 
-`cin.tie(NULL);`
+`cin.tie(NULL);` [Is-this-fft's comment](https://codeforces.com/blog/entry/90775?#comment-791764)
 
 By default, `cin` is tied to `cout`, which means that `cout` is flushed before any operation on `cin` ([description](http://cplusplus.com/reference/iostream/ios/tie/)). Turning this feature off allows iostreams, again, to operate faster. One should be careful with this optimization in interactive problems: it should either not be used, or an explicit `flush` should be issued each time.
 
