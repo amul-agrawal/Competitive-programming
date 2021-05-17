@@ -21,11 +21,13 @@ public:
 		capacity.assign(n+2, vector<int>(n+2, 0));
 	}
 
-    // Add reverse edge for each directed edge with zero capacity.
-	void add_edge(int u,int v,T w) 
+    // Adds reverse edge for each directed edge with zero capacity.
+	void add_edge(int u,int v,T w,T rw = 0) 
 	{
 		adj[u].pb(v);
+		adj[v].pb(u);
 		capacity[u][v] += w;
+		capacity[v][u] += rw;
 	}
 
 	int bfs(int s, int t, vector<int>& parent) {
