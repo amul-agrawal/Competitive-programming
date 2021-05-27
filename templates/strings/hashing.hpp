@@ -51,3 +51,6 @@ int main() {
 	assert((ull)(H(1)*2+1-3) == 0);
 	// ...
 }
+
+// Problems solved
+// 1. https://codeforces.com/contest/822/problem/E
