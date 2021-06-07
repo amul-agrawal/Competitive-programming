@@ -12,14 +12,18 @@ void dfs(int x,int l=1)
 		{
 			// spanning edge
 			dfs(next, l+1);
+			// sum of all edge originations in the subtree of x
 			dp[x] += dp[next];
 		}
 		else if(lvl[next] < lvl[x])
 		{
+			// found the first edge and hence adding a new edge origination.
 			dp[x]++;
 		}
 		else
 		{
+			// found the second vertex here only and hence, 
+			// have to remove some edge originations.
 			dp[x]--;
 		}
 	}
