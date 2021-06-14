@@ -224,6 +224,7 @@ int num_of_active_bits = b.count();
 int first_set_bit = b._Find_first();
 int pos = 0;
 int first_set_bit_after_pos = b._Find_next(pos);
+```
 # References
 - [Fast I/O](https://codeforces.com/blog/entry/5217)
 - [C++ tips and tricks](https://codeforces.com/blog/entry/74684)
