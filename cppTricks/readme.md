@@ -215,6 +215,16 @@ int min1 = min({a,b,c,d});
 cout << gcd(24, 60); // 12
 cout << lcm(8, 10);  // 40
 ```
+### Bitset
+```cpp
+const int N = 100;
+bitset<N> b(12), a(8); // complexity is N/32 or N/64, depending upon system architecture.
+int and1 = b&a; // normal bitwise operations are valid
+int num_of_active_bits = b.count();
+int first_set_bit = b._Find_first();
+int pos = 0;
+int first_set_bit_after_pos = b._Find_next(pos);
+```
 # References
 - [Fast I/O](https://codeforces.com/blog/entry/5217)
 - [C++ tips and tricks](https://codeforces.com/blog/entry/74684)
