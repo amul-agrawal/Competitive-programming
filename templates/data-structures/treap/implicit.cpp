@@ -1,10 +1,7 @@
 
 #include <bits/stdc++.h>
-// #include <vector>
-// #include <iostream>
-// #include <stdlib.h>
-// #include <string>
 using namespace std;
+#define all(c) (c).begin(),(c).end()
 #define ll long long
 #define endl '\n'
 typedef vector< int > vi;
@@ -32,7 +29,7 @@ public:
 		t->min1 = t->val = val;
 		return t;
 	}
-	int sz(pnode t) {
+	inline int sz(pnode t) {
 		return t ? t->size : 0;
 	}
 	// t may denote same node as l or r, so take care of that.
@@ -51,7 +48,7 @@ public:
 		combine(t, t->l, t);
 		combine(t, t, t->r);
 	}
-	void push(pnode &t) {
+	void push(pnode t) {
 		if(!t) return;
 		if(t->rev) {
 			swap(t->r, t->l);
@@ -91,6 +88,29 @@ public:
 			t = r;
 		}
 		operation(t);
+	}
+	void heapify(pnode t) {
+		if(!t) return ;
+	    pnode max = t;
+	    if (t->l != NULL && t->l->prior > max->prior)
+	        max = t->l;
+	    if (t->r != NULL && t->r->prior > max->prior)
+	        max = t->r;
+	    if (max != t) {
+	        swap (t->prior, max->prior);
+	        heapify (max);
+	    }
+	}
+	// O(n) treap build given array is increasing
+	pnode build(T *arr,int n) {
+		if(n==0) return NULL;
+		int mid = n/2;
+		pnode t = getnode(arr[mid]);
+		t->l = build(arr, mid);
+		t->r = build(arr + mid + 1, n - mid - 1);
+		heapify(t);
+		operation(t);
+		return t;
 	}
 	Treap(vector<T> &arr) {
 		root = NULL;
