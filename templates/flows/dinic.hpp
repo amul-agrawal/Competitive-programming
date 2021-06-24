@@ -16,11 +16,15 @@ class Dinic
 		T c, oc;
 		T flow() { return max(oc - c, (T)0); } // if you need flows
 	};
+	int N;
 	vector<int> lvl, ptr, q;
 	vector<vector<Edge>> adj;
 public:
+	vector<vector<T>> Flow;
 	Dinic(int n)
 	{
+		N = n;
+		Flow.assign(n, vector<T>(n, (T)0));
 		lvl.resize(n); adj.resize(n); ptr.resize(n); q.resize(n);
 	}
 
@@ -65,4 +69,13 @@ public:
 	}
 
 	bool leftOfMinCut(int a) { return lvl[a] != 0; }
+
+	void build_Flow() {
+		for(int i=0;i<N;i++) {
+			for(auto e : adj[i]) {
+				int j = e.to;
+				Flow[i][j] = e.flow();
+			}
+		}
+	}
 };
