@@ -1,12 +1,3 @@
-
-#include <bits/stdc++.h>
-using namespace std;
-#define all(c) (c).begin(),(c).end()
-#define ll long long
-#define endl '\n'
-typedef vector< int > vi;
-typedef vector< ll > lvi;
-
 struct node {
 	int prior, val, min1, lazy, size;
 	bool rev;
@@ -32,7 +23,6 @@ public:
 	inline int sz(pnode t) {
 		return t ? t->size : 0;
 	}
-	// FRAGILE: HANDLE WITH CARE
 	// t may denote same node as l or r, so take care of that.
 	void combine(pnode &t,pnode l,pnode r) {
 		if(!l or !r) return void(t = (l ? l : r));
@@ -203,55 +193,3 @@ public:
 		return ans;
 	}
 };
-
-signed main()
-{
-	ios_base::sync_with_stdio(false);
-    cin.tie(NULL);	
-	int n;
-	cin>>n;
-	vi a(n);
-	for (int i = 0; i < n; ++i)
-	{
-		cin>>a[i];
-	}
-	Treap<int> tr(a);
-	int m; cin>>m;
-	while(m--) {
-		// cerr<<"TREAP NOW: "; tr.inorder(tr.root); cerr<<endl;
-		string op;
-		cin>>op;
-		if(op == "ADD") {
-			int l, r, val;
-			cin>>l>>r>>val;
-			l--; r--;
-			tr.add(l, r, val);
-		} else if (op == "REVERSE") {
-			int l, r;
-			cin>>l>>r;
-			l--; r--;
-			tr.reverse(l, r);
-		} else if(op == "REVOLVE") {
-			int l, r, t;
-			cin>>l>>r>>t;
-			l--; r--;
-			tr.revolve(l, r, t);
-		} else if(op == "INSERT") {
-			int pos, val;
-			cin>>pos>>val;
-			pos--;
-			tr.insert(pos, val);
-		} else if(op == "DELETE") {
-			int pos;
-			cin>>pos;
-			pos--;
-			tr.del(pos);
-		} else if(op == "MIN") {
-			int l, r;
-			cin>>l>>r;
-			l--; r--;
-			cout<<tr.range_min(l, r)<<'\n';
-		}
-	}
-	return 0;
-}	
