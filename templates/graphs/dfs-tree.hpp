@@ -1,8 +1,10 @@
 // DFS tree: https://codeforces.com/blog/entry/68138
 
+// imp property: if you want to orient edges edges of undirected graph such that it still stays connected.
+// orient span edges accordingly and back edges accordingly.
+
 // lvl[x] => root has level 1, children of root have level 2 and so on.
 // dp[x] => number of edges from subtree of x and passing over {x, p[x]}.
-
 void dfs(int x,int l=1)
 {
 	lvl[x] = l;
