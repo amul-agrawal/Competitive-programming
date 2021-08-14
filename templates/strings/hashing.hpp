@@ -41,6 +41,7 @@ vector<H> getHashes(string& str, int length) {
 	return ret;
 }
 
+// hash("abcd") = (a*C^3 + b*C^2 + c*C^1 + d*C^0)
 H hashString(string& s){H h{}; for(char c:s) h=h*C+c;return h;}
 
 #include <sys/time.h>
