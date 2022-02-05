@@ -1,7 +1,11 @@
 #define rep(i, a, b) for(int i = a; i < (b); ++i)
-#define all(x) begin(x), end(x)
+// #define all(x) begin(x), end(x)
 #define sz(x) (int)(x).size()
-typedef vector<int> vi;
+// typedef vector<int> vi;
+
+// sa: sorted suffixes, sa[0] is always s.length()
+// lcp[i] => longest common prefix for suffix sa[i] and sa[i-1].
+
 struct SuffixArray {
 	vi sa, lcp;
 	SuffixArray(string& s, int lim=256) { // or basic_string<int>
