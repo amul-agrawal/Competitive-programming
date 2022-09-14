@@ -1,5 +1,11 @@
 // link: https://codeforces.com/blog/entry/68953
 
+// Total number of elements represeted by xor basis = 2 ^ sz
+
+// Number of ways to represent a value x using xor basis. ways = 2^(n - sz), n = size of the array, sz = size of xor basis.
+// Each subset of (n - sz) elements can be mapped to x using some subset of basis vectors.
+
+
 // Number of subset xors: 2^(basis.size())
 int basis[d]; // basis[i] keeps the mask of the vector whose f value is i
 int sz; // Current size of the basis
