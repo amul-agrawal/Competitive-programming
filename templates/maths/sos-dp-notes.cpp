@@ -124,3 +124,7 @@ int main()
 // step2: F[mask] => number of sets with and >= mask (superset dp)
 // step3: inclusion exclusion
 // F[000] - F[001] - F[010] - F[100] + F[110] + F[011] + F[101] - F[111]
+
+// Nice Problems
+// https://atcoder.jp/contests/arc136/tasks/arc136_d (base 10)
+// https://official.contest.yandex.com/icpc-ptz-shanghai-2022/contest/34826/problems/G/
